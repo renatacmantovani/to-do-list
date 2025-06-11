@@ -8,7 +8,7 @@ function CreateTask() {
 
   const handleCreateTask = async () => {
     if (!title.trim()) return;
-    await fetch("http://3.139.238.224:3000/api/tasks", {
+    await fetch("http://3.146.65.101:3000/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title }),
