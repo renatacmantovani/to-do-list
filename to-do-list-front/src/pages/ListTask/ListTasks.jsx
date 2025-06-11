@@ -10,13 +10,13 @@ function ListTasks() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/tasks")
+    fetch("http://18.225.175.13:3000/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
 
   const handleDeleteTask = async (id) => {
-    await fetch(`http://localhost:3000/api/tasks/${id}`, { method: "DELETE" });
+    await fetch(`http://18.225.175.13:3000/api/tasks/${id}`, { method: "DELETE" });
     setTasks(tasks.filter((task) => task._id !== id));
   };
 
@@ -32,7 +32,7 @@ function ListTasks() {
 
   const handleSaveEdit = async (id) => {
     if (!editingTitle.trim()) return;
-    await fetch(`http://localhost:3000/api/tasks/${id}`, {
+    await fetch(`http://18.225.175.13:3000/api/tasks/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: editingTitle, finished: false }),
